@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.lab.service;
+package mk.ukim.finki.emt.lab.service.domain;
 
 import org.springframework.stereotype.Service;
 
