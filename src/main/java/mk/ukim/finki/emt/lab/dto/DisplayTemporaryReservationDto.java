@@ -1,8 +1,6 @@
-package mk.ukim.finki.emt.lab.model.dto;
+package mk.ukim.finki.emt.lab.dto;
 
-import jakarta.persistence.ManyToOne;
 import mk.ukim.finki.emt.lab.model.domain.Accommodation;
-import mk.ukim.finki.emt.lab.model.domain.Country;
 import mk.ukim.finki.emt.lab.model.domain.TemporaryReservation;
 import mk.ukim.finki.emt.lab.model.domain.User;
 

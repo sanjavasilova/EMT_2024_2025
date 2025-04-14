@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.lab.model.dto;
+package mk.ukim.finki.emt.lab.dto;
 
 public record LoginDto(
         String username,

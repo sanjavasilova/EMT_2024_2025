@@ -1,10 +1,7 @@
 package mk.ukim.finki.emt.lab.service.application;
 
-import mk.ukim.finki.emt.lab.model.domain.Accommodation;
-import mk.ukim.finki.emt.lab.model.domain.TemporaryReservation;
 import mk.ukim.finki.emt.lab.model.domain.User;
-import mk.ukim.finki.emt.lab.model.dto.DisplayAccommodationDto;
-import mk.ukim.finki.emt.lab.model.dto.DisplayTemporaryReservationDto;
+import mk.ukim.finki.emt.lab.dto.DisplayTemporaryReservationDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

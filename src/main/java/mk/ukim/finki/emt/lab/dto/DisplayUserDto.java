@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.lab.model.dto;
+package mk.ukim.finki.emt.lab.dto;
 
 import mk.ukim.finki.emt.lab.model.domain.Country;
 import mk.ukim.finki.emt.lab.model.domain.User;

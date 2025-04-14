@@ -1,9 +1,8 @@
 package mk.ukim.finki.emt.lab.service.application;
 
-import mk.ukim.finki.emt.lab.model.dto.DisplayHostDto;
-import mk.ukim.finki.emt.lab.model.dto.DisplayUserDto;
-import mk.ukim.finki.emt.lab.model.dto.LoginDto;
-import mk.ukim.finki.emt.lab.model.dto.RegisterDto;
+import mk.ukim.finki.emt.lab.dto.DisplayUserDto;
+import mk.ukim.finki.emt.lab.dto.LoginDto;
+import mk.ukim.finki.emt.lab.dto.RegisterDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

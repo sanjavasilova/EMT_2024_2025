@@ -1,12 +1,13 @@
 package mk.ukim.finki.emt.lab.web;
 
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import mk.ukim.finki.emt.lab.model.domain.User;
-import mk.ukim.finki.emt.lab.model.dto.DisplayTemporaryReservationDto;
+import mk.ukim.finki.emt.lab.dto.DisplayTemporaryReservationDto;
 import mk.ukim.finki.emt.lab.service.application.TemporaryReservationApplicationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +28,12 @@ public class TemporaryReservationController {
     @PreAuthorize("isAuthenticated()")
     @Operation(summary = "Add accommodation to temporary reservation", description = "Temporarily reserves an accommodation for the authenticated user.")
     @PostMapping("/reserve/{id}")
+    @ApiResponses(
+            value = {@ApiResponse(
+                    responseCode = "200",
+                    description = "Reservation added successfully"
+            ), @ApiResponse(responseCode = "404", description = "Invalid id or accommodation not available")}
+    )
     public ResponseEntity<DisplayTemporaryReservationDto> addToTempReservation(@PathVariable Long id, @AuthenticationPrincipal User user) {
         return temporaryReservationApplicationService.addToTemporaryReservation(user, id).map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.badRequest().build());

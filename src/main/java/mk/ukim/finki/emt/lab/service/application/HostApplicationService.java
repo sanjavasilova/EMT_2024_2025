@@ -1,10 +1,9 @@
 package mk.ukim.finki.emt.lab.service.application;
 
-import mk.ukim.finki.emt.lab.model.dto.CreateHostDto;
-import mk.ukim.finki.emt.lab.model.dto.DisplayHostDto;
+import mk.ukim.finki.emt.lab.dto.CreateHostDto;
+import mk.ukim.finki.emt.lab.dto.DisplayHostDto;
 import org.springframework.stereotype.Service;
 
-import java.nio.channels.FileChannel;
 import java.util.List;
 import java.util.Optional;
 

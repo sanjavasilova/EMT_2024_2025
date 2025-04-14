@@ -2,7 +2,7 @@ package mk.ukim.finki.emt.lab.web;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import mk.ukim.finki.emt.lab.model.dto.DisplayUserDto;
+import mk.ukim.finki.emt.lab.dto.DisplayUserDto;
 import mk.ukim.finki.emt.lab.service.application.HostApplicationService;
 import mk.ukim.finki.emt.lab.service.application.UserApplicationService;
 import org.springframework.web.bind.annotation.*;

@@ -2,9 +2,9 @@ package mk.ukim.finki.emt.lab.web;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import mk.ukim.finki.emt.lab.model.dto.CreateAccommodationDto;
-import mk.ukim.finki.emt.lab.model.dto.DisplayAccommodationDto;
-import mk.ukim.finki.emt.lab.model.dto.DisplayAccommodationRentDto;
+import mk.ukim.finki.emt.lab.dto.CreateAccommodationDto;
+import mk.ukim.finki.emt.lab.dto.DisplayAccommodationDto;
+import mk.ukim.finki.emt.lab.dto.DisplayAccommodationRentDto;
 import mk.ukim.finki.emt.lab.service.application.AccommodationApplicationService;
 import mk.ukim.finki.emt.lab.service.application.AccommodationRentApplicationService;
 import org.springframework.http.ResponseEntity;

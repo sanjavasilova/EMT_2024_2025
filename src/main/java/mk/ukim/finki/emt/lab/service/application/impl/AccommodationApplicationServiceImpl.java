@@ -1,8 +1,8 @@
 package mk.ukim.finki.emt.lab.service.application.impl;
 
 import mk.ukim.finki.emt.lab.model.domain.User;
-import mk.ukim.finki.emt.lab.model.dto.CreateAccommodationDto;
-import mk.ukim.finki.emt.lab.model.dto.DisplayAccommodationDto;
+import mk.ukim.finki.emt.lab.dto.CreateAccommodationDto;
+import mk.ukim.finki.emt.lab.dto.DisplayAccommodationDto;
 import mk.ukim.finki.emt.lab.service.application.AccommodationApplicationService;
 import mk.ukim.finki.emt.lab.service.domain.AccommodationService;
 import mk.ukim.finki.emt.lab.service.domain.HostService;

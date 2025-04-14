@@ -1,15 +1,13 @@
 package mk.ukim.finki.emt.lab.service.application.impl;
 
 import mk.ukim.finki.emt.lab.model.domain.User;
-import mk.ukim.finki.emt.lab.model.dto.DisplayAccommodationDto;
-import mk.ukim.finki.emt.lab.model.dto.DisplayTemporaryReservationDto;
+import mk.ukim.finki.emt.lab.dto.DisplayTemporaryReservationDto;
 import mk.ukim.finki.emt.lab.service.application.TemporaryReservationApplicationService;
 import mk.ukim.finki.emt.lab.service.domain.TemporaryReservationService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class TemporaryReservationApplicationServiceImpl implements TemporaryReservationApplicationService {
