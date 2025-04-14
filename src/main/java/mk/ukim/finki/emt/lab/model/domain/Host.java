@@ -1,4 +1,4 @@
-package mk.ukim.finki.emt.lab.model;
+package mk.ukim.finki.emt.lab.model.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;

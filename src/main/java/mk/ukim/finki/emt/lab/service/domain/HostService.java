@@ -1,9 +1,8 @@
 package mk.ukim.finki.emt.lab.service.domain;
 
-import mk.ukim.finki.emt.lab.model.Host;
+import mk.ukim.finki.emt.lab.model.domain.Host;
 import org.springframework.stereotype.Service;
 
-import java.nio.channels.FileChannel;
 import java.util.List;
 import java.util.Optional;
 

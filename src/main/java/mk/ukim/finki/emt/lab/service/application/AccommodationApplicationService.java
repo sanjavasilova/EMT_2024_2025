@@ -1,6 +1,5 @@
 package mk.ukim.finki.emt.lab.service.application;
 
-import mk.ukim.finki.emt.lab.model.AccommodationRent;
 import mk.ukim.finki.emt.lab.model.dto.CreateAccommodationDto;
 import mk.ukim.finki.emt.lab.model.dto.DisplayAccommodationDto;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package mk.ukim.finki.emt.lab.service.domain.impl;
 
-import mk.ukim.finki.emt.lab.model.Accommodation;
-import mk.ukim.finki.emt.lab.model.AccommodationRent;
+import mk.ukim.finki.emt.lab.model.domain.Accommodation;
+import mk.ukim.finki.emt.lab.model.domain.AccommodationRent;
 import mk.ukim.finki.emt.lab.repository.AccommodationRentRepository;
 import mk.ukim.finki.emt.lab.service.domain.AccommodationRentService;
 import mk.ukim.finki.emt.lab.service.domain.AccommodationService;
@@ -29,18 +29,9 @@ public class AccommodationRentServiceImpl implements AccommodationRentService {
         }
 
         Accommodation accommodation = optionalAccommodation.get();
-        List<AccommodationRent> accommodations = accommodationRentRepository.findByAccommodationId(id);
 
-        for (AccommodationRent accommodationToRent : accommodations) {
-            if (!accommodationToRent.isRent()) {
-                accommodationToRent.setRent(true);
-                return Optional.of(accommodationRentRepository.save(accommodationToRent));
-            }
-        }
-        if (accommodations.isEmpty()) {
-            AccommodationRent accommodationRent = new AccommodationRent(accommodation);
-            accommodationRent.setRent(true);
-            return Optional.of(accommodationRentRepository.save(accommodationRent));
+        if (accommodation.getNumRooms() > accommodationRentRepository.findByAccommodation(accommodation).size()) {
+                return Optional.of(accommodationRentRepository.save(new AccommodationRent(accommodation, true)));
         }
         return Optional.empty();
     }

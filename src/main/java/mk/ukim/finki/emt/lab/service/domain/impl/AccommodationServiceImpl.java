@@ -1,7 +1,7 @@
 package mk.ukim.finki.emt.lab.service.domain.impl;
 
-import mk.ukim.finki.emt.lab.model.Accommodation;
-import mk.ukim.finki.emt.lab.model.AccommodationCategory;
+import mk.ukim.finki.emt.lab.model.domain.Accommodation;
+import mk.ukim.finki.emt.lab.model.enumerations.AccommodationCategory;
 import mk.ukim.finki.emt.lab.repository.AccommodationRepository;
 import mk.ukim.finki.emt.lab.service.domain.AccommodationService;
 import org.springframework.stereotype.Service;

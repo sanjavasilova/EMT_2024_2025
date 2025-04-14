@@ -1,7 +1,8 @@
-package mk.ukim.finki.emt.lab.model;
+package mk.ukim.finki.emt.lab.model.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import mk.ukim.finki.emt.lab.model.enumerations.AccommodationCategory;
 
 @Entity
 @Data
@@ -16,7 +17,7 @@ public class Accommodation {
     private AccommodationCategory category;
 
     @ManyToOne
-    private Host host;
+    private User host;
 
     private Integer numRooms;
 
@@ -24,7 +25,7 @@ public class Accommodation {
 
     }
 
-    public Accommodation(String name, AccommodationCategory category, Host host, Integer numRooms) {
+    public Accommodation(String name, AccommodationCategory category, User host, Integer numRooms) {
         this.name = name;
         this.category = category;
         this.host = host;

@@ -1,8 +1,9 @@
 package mk.ukim.finki.emt.lab.model.dto;
 
-import mk.ukim.finki.emt.lab.model.Accommodation;
-import mk.ukim.finki.emt.lab.model.AccommodationCategory;
-import mk.ukim.finki.emt.lab.model.Host;
+import mk.ukim.finki.emt.lab.model.domain.Accommodation;
+import mk.ukim.finki.emt.lab.model.domain.User;
+import mk.ukim.finki.emt.lab.model.enumerations.AccommodationCategory;
+import mk.ukim.finki.emt.lab.model.domain.Host;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +12,7 @@ public record DisplayAccommodationDto(
         Long id,
         String name,
         AccommodationCategory category,
-        Long hostId,
+        String userUsername,
         Integer numRooms
 ) {
     public static DisplayAccommodationDto from(Accommodation accommodation) {
@@ -19,7 +20,7 @@ public record DisplayAccommodationDto(
                 accommodation.getId(),
                 accommodation.getName(),
                 accommodation.getCategory(),
-                accommodation.getHost().getId(),
+                accommodation.getHost().getUsername(),
                 accommodation.getNumRooms()
         );
     }
@@ -28,7 +29,7 @@ public record DisplayAccommodationDto(
         return accommodations.stream().map(DisplayAccommodationDto::from).collect(Collectors.toList());
     }
 
-    public Accommodation toAccommodation(Host host) {
+    public Accommodation toAccommodation(User host) {
         return new Accommodation(name, category, host, numRooms);
     }
 

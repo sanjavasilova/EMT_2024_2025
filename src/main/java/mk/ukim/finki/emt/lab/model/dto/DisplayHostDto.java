@@ -1,8 +1,8 @@
 package mk.ukim.finki.emt.lab.model.dto;
 
-import mk.ukim.finki.emt.lab.model.Accommodation;
-import mk.ukim.finki.emt.lab.model.Country;
-import mk.ukim.finki.emt.lab.model.Host;
+import mk.ukim.finki.emt.lab.model.domain.Accommodation;
+import mk.ukim.finki.emt.lab.model.domain.Country;
+import mk.ukim.finki.emt.lab.model.domain.Host;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,7 +1,7 @@
 package mk.ukim.finki.emt.lab.service.application.impl;
 
-import mk.ukim.finki.emt.lab.model.Country;
-import mk.ukim.finki.emt.lab.model.Host;
+import mk.ukim.finki.emt.lab.model.domain.Country;
+import mk.ukim.finki.emt.lab.model.domain.Host;
 import mk.ukim.finki.emt.lab.model.dto.CreateHostDto;
 import mk.ukim.finki.emt.lab.model.dto.DisplayAccommodationDto;
 import mk.ukim.finki.emt.lab.model.dto.DisplayHostDto;
