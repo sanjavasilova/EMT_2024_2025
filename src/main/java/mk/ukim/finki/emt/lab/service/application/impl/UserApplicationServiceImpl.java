@@ -50,4 +50,9 @@ public class UserApplicationServiceImpl implements UserApplicationService {
     public Optional<DisplayUserDto> findByUsername(String username) {
         return Optional.of(DisplayUserDto.from(userService.findByUsername(username)));
     }
+
+    @Override
+    public DisplayUserDto getMostPopular() {
+        return DisplayUserDto.from(userService.mostPopularHost());
+    }
 }

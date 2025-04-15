@@ -30,6 +30,13 @@ public class HostController {
         return userApplicationService.findAll();
     }
 
+    @Operation(summary = "Get most popular host", description = "Get the host with most rents")
+    @ApiResponse(responseCode = "200", description = "Successfully retrieved host")
+    @GetMapping("/most-popular")
+    public DisplayUserDto getMostPopular() {
+        return userApplicationService.getMostPopular();
+    }
+
 //    @PreAuthorize("isAuthenticated()")
 //    @Operation(summary = "Add a new host", description = "Create a new host")
 //    @ApiResponse(responseCode = "200", description = "Successfully added the host")

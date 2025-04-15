@@ -35,4 +35,9 @@ public class AccommodationRentServiceImpl implements AccommodationRentService {
         }
         return Optional.empty();
     }
+
+    @Override
+    public List<AccommodationRent> findByAccommodation(Accommodation accommodation) {
+        return accommodationRentRepository.findByAccommodation(accommodation);
+    }
 }

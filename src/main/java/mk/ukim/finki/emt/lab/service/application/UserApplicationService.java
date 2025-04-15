@@ -17,6 +17,8 @@ public interface UserApplicationService {
     Optional<DisplayUserDto> login(LoginDto loginUserDto);
 
     Optional<DisplayUserDto> findByUsername(String username);
+
+    DisplayUserDto getMostPopular();
 }
 
 

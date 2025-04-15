@@ -31,9 +31,11 @@ public class AccommodationApplicationServiceImpl implements AccommodationApplica
     @Override
     public Optional<DisplayAccommodationDto> addAccommodation(CreateAccommodationDto createAccommodationDto) {
         User host = userService.findByUsername(createAccommodationDto.hostUsername());
-        if (host.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_HOST"))) {
-            return accommodationService.addAccommodation(createAccommodationDto.toAccommodation(host)).map(DisplayAccommodationDto::from);
+        if (host.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_HOST"))) {
+            return accommodationService.addAccommodation(createAccommodationDto.toAccommodation(host))
+                    .map(DisplayAccommodationDto::from);
         }
+
         return Optional.empty();
     }
 
@@ -50,7 +52,7 @@ public class AccommodationApplicationServiceImpl implements AccommodationApplica
     @Override
     public Optional<DisplayAccommodationDto> editAccommodation(Long id, CreateAccommodationDto createAccommodationDto) {
         User host = userService.findByUsername(createAccommodationDto.hostUsername());
-        if (host.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_HOST"))) {
+        if (host.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_HOST"))) {
             return Optional.empty();
         }
         return accommodationService.editAccommodation(id, createAccommodationDto.toAccommodation(host)).map(DisplayAccommodationDto::from);

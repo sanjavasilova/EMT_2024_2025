@@ -45,8 +45,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(requests -> requests.requestMatchers(
                         "/api/accommodations",
                         "/api/host",
-                        "api/user/login",
-                        "api/user/register"
+                        "/api/user/login",
+                        "/api/user/register"
                 ).permitAll()
                         .requestMatchers("/api/accommodations/rent/**").hasRole("USER")
                         .requestMatchers(

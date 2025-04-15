@@ -1,6 +1,7 @@
 package mk.ukim.finki.emt.lab.service.domain.impl;
 
 import mk.ukim.finki.emt.lab.model.domain.Accommodation;
+import mk.ukim.finki.emt.lab.model.domain.User;
 import mk.ukim.finki.emt.lab.model.enumerations.AccommodationCategory;
 import mk.ukim.finki.emt.lab.repository.AccommodationRepository;
 import mk.ukim.finki.emt.lab.service.domain.AccommodationService;
@@ -71,5 +72,10 @@ public class AccommodationServiceImpl implements AccommodationService {
             accommodationToEdit.setNumRooms(accommodation.getNumRooms());
         }
         return Optional.of(accommodationRepository.save(accommodationToEdit));
+    }
+
+    @Override
+    public List<Accommodation> findByHost(User host) {
+        return accommodationRepository.findByHost(host);
     }
 }

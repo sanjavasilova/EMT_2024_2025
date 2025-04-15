@@ -1,10 +1,14 @@
 package mk.ukim.finki.emt.lab.service.domain.impl;
 
+import mk.ukim.finki.emt.lab.model.domain.Accommodation;
+import mk.ukim.finki.emt.lab.model.domain.AccommodationRent;
 import mk.ukim.finki.emt.lab.model.domain.Country;
 import mk.ukim.finki.emt.lab.model.domain.User;
 import mk.ukim.finki.emt.lab.model.enumerations.Role;
 import mk.ukim.finki.emt.lab.model.exceptions.*;
 import mk.ukim.finki.emt.lab.repository.UserRepository;
+import mk.ukim.finki.emt.lab.service.domain.AccommodationRentService;
+import mk.ukim.finki.emt.lab.service.domain.AccommodationService;
 import mk.ukim.finki.emt.lab.service.domain.CountryService;
 import mk.ukim.finki.emt.lab.service.domain.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,11 +26,15 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final CountryService countryService;
+    private final AccommodationRentService accommodationRentService;
+    private final AccommodationService accommodationService;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, CountryService countryService) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, CountryService countryService, AccommodationRentService accommodationRentService, AccommodationService accommodationService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.countryService = countryService;
+        this.accommodationRentService = accommodationRentService;
+        this.accommodationService = accommodationService;
     }
 
     @Override
@@ -43,6 +52,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public User mostPopularHost() {
+        List<User> hosts = userRepository.findAll().stream().filter(user -> user.getRole().equals(Role.ROLE_HOST)).collect(Collectors.toList());
+        int max = 0;
+        User mostPopularHost = hosts.get(0);
+        for (User host : hosts) {
+            List<Accommodation> accommodations = accommodationService.findByHost(host);
+            int count = 0;
+            for(Accommodation accommodation : accommodations) {
+                List<AccommodationRent> accommodationRents = accommodationRentService.findByAccommodation(accommodation);
+                count += (int) accommodationRents.stream().filter(AccommodationRent::isRent).count();
+            }
+            if (count > max){
+                max = count;
+                mostPopularHost = host;
+            }
+        }
+        return mostPopularHost;
     }
 
     @Override
